@@ -52,7 +52,9 @@
 
 1、当页面存在<!--delete-->注释，该段代码将删除；<br/>
 例：
-<script src="/xxx/reactPack.min.js"></script><!--delete-->
+```
+    <script src="/xxx/reactPack.min.js"></script><!--delete-->
+```
 
 2、cssDomain与jsDomain 为页面添加域名功能，不用可以忽略；
 
