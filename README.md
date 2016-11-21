@@ -56,7 +56,7 @@
     <script src="/xxx/reactPack.min.js"></script><!--delete-->
 ```
 
-2、cssDomain与jsDomain 为页面添加域名功能，不用可以忽略；
+2、cssDomain与jsDomain 为页面静态资源添加域名功能，不用可以忽略；
 
 3、imgPath 需要转换为webp的图片路径，imgReg 设置要转换图片格式<br/>
 imgPath 支持字符串与数组 'www/home/*.{jpg,png,jpeg}' 或 ['xxx.{jpg,png,jpeg}'，'xxx.{jpg,png,jpeg}'];<br/>
