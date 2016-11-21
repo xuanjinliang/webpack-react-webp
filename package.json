@@ -1,0 +1,29 @@
+{
+  "name": "webpack-react-webp",
+  "version": "1.0.0",
+  "description": "用webpack编译react后，支持webp图片格式功能",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuanjinliang/webpack-react-webp.git"
+  },
+  "keywords": [
+	"react",
+	"webp",
+    "webpack"
+  ],
+  "author": "xuanjinliang",
+  "license": "ISC",
+  "dependencies": {
+    "cwebp-binLocal": "0.0.10",
+    "glob": "^7.1.1",
+	"uglify-js": "^2.7.4"
+  }
+  "bugs": {
+    "url": "https://github.com/xuanjinliang/webpack-react-webp/issues"
+  },
+  "homepage": "https://github.com/xuanjinliang/webpack-react-webp#readme"
+}
