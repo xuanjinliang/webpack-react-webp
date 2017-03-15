@@ -23,6 +23,7 @@ let linkTest = /(?:\s*(<link([^>]*?)(stylesheet){1}([^>]*?)(?:\/)?>))/ig,
     styleUrl = /(?:\shref\s*=\s*)('([^'<>]+)'|"([^"<>]+)"|[^\s\/>]+)/i,
     ScriptTest = /(?:(\s*<script([^>]*)>([\s\S]*?)<\/script>))/ig,
     scriptSrc = /(?:\ssrc\s*=\s*)('([^<>']+)'|"([^<>\"]+)")/i,
+    httpLink = /^(?:(https?):)?\/\/((?:\w+\.?)+)\/?/i,
     deleteComment = /((<!(?:--)?\[[\s\S]*?<\!\[endif\](?:--)?>|<!--[\s\S]*?(?:-->|$))|(?:(\s*<script[^>]*>[^<>]*<\/script>)|(?:\s*(<link([^>]*?)(?:\/)?>)|(<style([^>]*)>([\s\S]*?)<\/style>))))<!--delete-->/ig;
 
 if(!fs.existsSync(dataDir)){
@@ -71,7 +72,7 @@ function replaceHtml(html,linkTest,urlTest,filePath,domain){
             if(realPath.charAt(0) != '/'){
                 realPath = '/' + realPath;
             }
-            if(domainStr){
+            if(domainStr && !realPath.match(httpLink)){
                 let str = domainStr.charAt(domainStr.length - 1);
                 if(str.match(/\\|\//gi)){
                     domainStr = domainStr.substring(0,domainStr.length - 1);
