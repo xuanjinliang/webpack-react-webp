@@ -23,6 +23,7 @@ let linkTest = /(?:\s*(<link([^>]*?)(stylesheet){1}([^>]*?)(?:\/)?>))/ig,
     styleUrl = /(?:\shref\s*=\s*)('([^'<>]+)'|"([^"<>]+)"|[^\s\/>]+)/i,
     ScriptTest = /(?:(\s*<script([^>]*)>([\s\S]*?)<\/script>))/ig,
     scriptSrc = /(?:\ssrc\s*=\s*)('([^<>']+)'|"([^<>\"]+)")/i,
+    httpLink = /^(?:(https?):)?\/\/((?:\w+\.?)+)\/?/i,
     deleteComment = /((<!(?:--)?\[[\s\S]*?<\!\[endif\](?:--)?>|<!--[\s\S]*?(?:-->|$))|(?:(\s*<script[^>]*>[^<>]*<\/script>)|(?:\s*(<link([^>]*?)(?:\/)?>)|(<style([^>]*)>([\s\S]*?)<\/style>))))<!--delete-->/ig;
 
 if(!fs.existsSync(dataDir)){
@@ -67,6 +68,10 @@ function replaceHtml(html,linkTest,urlTest,filePath,domain){
             let route = $1.replace(/\'|\"/ig,'').trim(),
                 realPath = path.isAbsolute(route)?route:path.join(filePath,route);
 
+            if(route.match(httpLink)){
+                return url.replace($1,`"${route}"`);
+            }
+            
             realPath = path.normalize(realPath).split('\\').join('\/');
             if(realPath.charAt(0) != '/'){
                 realPath = '/' + realPath;
