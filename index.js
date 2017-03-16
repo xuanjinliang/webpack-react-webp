@@ -68,11 +68,15 @@ function replaceHtml(html,linkTest,urlTest,filePath,domain){
             let route = $1.replace(/\'|\"/ig,'').trim(),
                 realPath = path.isAbsolute(route)?route:path.join(filePath,route);
 
+            if(route.match(httpLink)){
+                return url.replace($1,`"${route}"`);
+            }
+            
             realPath = path.normalize(realPath).split('\\').join('\/');
             if(realPath.charAt(0) != '/'){
                 realPath = '/' + realPath;
             }
-            if(domainStr && !realPath.match(httpLink)){
+            if(domainStr){
                 let str = domainStr.charAt(domainStr.length - 1);
                 if(str.match(/\\|\//gi)){
                     domainStr = domainStr.substring(0,domainStr.length - 1);
