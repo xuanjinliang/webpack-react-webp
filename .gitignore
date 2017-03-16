@@ -1,0 +1,19 @@
+logs/
+
+node_modules
+
+npm-debug.log
+
+# OS or Editor folders
+.DS_Store
+.vscode
+.idea
+.project
+.settings
+*.esproj
+*.sublime-project
+*.sublime-workspace
+Thumbs.db
+
+# ctags
+tags

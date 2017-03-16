@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-webp",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "用webpack编译react后，支持webp图片格式功能",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "xuanjinliang",
   "license": "ISC",
   "dependencies": {
-    "cwebp-binLocal": "0.0.10",
+    "cwebp-binLocal": "1.0.1",
     "glob": "^7.1.1",
 	"uglify-js": "^2.7.4"
   },
